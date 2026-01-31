@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - CampusFind</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: #f3f4f6; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        
+        .login-card { background: white; padding: 40px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); width: 100%; max-width: 400px; text-align: center; }
+        
+        .logo { font-size: 1.5rem; font-weight: 800; color: #4F46E5; margin-bottom: 10px; display: inline-block; }
+        h2 { color: #1f2937; margin-bottom: 30px; font-weight: 600; }
+        
+        .input-group { text-align: left; margin-bottom: 20px; }
+        label { display: block; font-size: 0.9rem; font-weight: 500; color: #374151; margin-bottom: 8px; }
+        input { width: 100%; padding: 12px; border: 1.5px solid #e5e7eb; border-radius: 8px; outline: none; transition: 0.3s; font-size: 1rem; }
+        input:focus { border-color: #4F46E5; box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1); }
+        
+        .btn-primary { width: 100%; padding: 12px; background: #4F46E5; color: white; border: none; border-radius: 8px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: 0.3s; }
+        .btn-primary:hover { background: #4338ca; transform: translateY(-1px); }
+        
+        .footer-text { margin-top: 20px; font-size: 0.9rem; color: #6b7280; }
+        .footer-text a { color: #4F46E5; text-decoration: none; font-weight: 600; }
+    </style>
+</head>
+<body>
+    <div class="login-card">
+        <span class="logo">🔍 CampusFind</span>
+        <h2>Welcome Back</h2>
+        
+        <div class="input-group">
+            <label>Email Address</label>
+            <input type="email" id="email" placeholder="student@college.edu">
+        </div>
+        
+        <div class="input-group">
+            <label>Password</label>
+            <input type="password" id="password" placeholder="••••••••">
+        </div>
+
+        <button class="btn-primary" onclick="loginUser()">Sign In</button>
+        
+        <p class="footer-text">Don't have an account? <a href="#" onclick="registerUser()">Sign Up</a></p>
+        <p class="footer-text"><a href="index.html">Skip to Home →</a></p>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
