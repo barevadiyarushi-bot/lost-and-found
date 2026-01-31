@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Item - CampusFind</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: #f3f4f6; padding: 40px 20px; display: flex; justify-content: center; }
+
+        .form-container { background: white; width: 100%; max-width: 550px; padding: 40px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+        
+        h2 { margin-bottom: 10px; color: #111827; }
+        p.sub { color: #6b7280; margin-bottom: 30px; }
+
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #374151; font-size: 0.9rem; }
+        input, select, textarea { width: 100%; padding: 12px; margin-bottom: 20px; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 1rem; outline: none; transition: 0.3s; }
+        input:focus, select:focus, textarea:focus { border-color: #4F46E5; }
+
+        .btn-submit { width: 100%; padding: 14px; background: #4F46E5; color: white; border: none; border-radius: 8px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: 0.3s; }
+        .btn-submit:hover { background: #4338ca; }
+        .btn-cancel { display: block; text-align: center; margin-top: 15px; color: #6b7280; text-decoration: none; font-weight: 500; }
+        .btn-cancel:hover { color: #111827; }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>📝 Report an Item</h2>
+        <p class="sub">Help the community by listing details accurately.</p>
+        
+        <label>Item Name</label>
+        <input type="text" id="title" placeholder="e.g. Black Lenovo Charger" required>
+
+        <label>Status</label>
+        <select id="type">
+            <option value="Lost">I Lost this</option>
+            <option value="Found">I Found this</option>
+        </select>
+
+        <label>Description</label>
+        <textarea id="desc" rows="3" placeholder="Describe distinct marks, location, or time..."></textarea>
+
+        <label>Contact Number (WhatsApp)</label>
+        <input type="tel" id="contact" placeholder="e.g. 9876543210">
+
+        <label>Upload Photo</label>
+        <input type="file" id="imageBtn" accept="image/*">
+
+        <button onclick="uploadItem()" id="submitBtn" class="btn-submit">Submit Post</button>
+        <a href="index.html" class="btn-cancel">Cancel</a>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-storage-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    
+    <script src="app.js"></script>
+</body>
+</html>
