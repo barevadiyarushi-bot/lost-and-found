@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusFind - Lost & Found</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Reset & Variables */
+        :root { --primary: #4F46E5; --bg: #f3f4f6; --text-dark: #1f2937; --text-light: #6b7280; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: var(--bg); color: var(--text-dark); }
+        a { text-decoration: none; }
+
+        /* Navbar */
+        nav { background: white; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); }
+        .nav-links { display: flex; gap: 20px; align-items: center; }
+        .btn-outline { border: 1.5px solid var(--primary); color: var(--primary); padding: 8px 16px; border-radius: 6px; font-weight: 600; transition: 0.3s; }
+        .btn-outline:hover { background: var(--primary); color: white; }
+        .btn-solid { background: var(--primary); color: white; padding: 10px 20px; border-radius: 6px; font-weight: 600; box-shadow: 0 4px 6px rgba(79, 70, 229, 0.2); transition: 0.3s; }
+        .btn-solid:hover { background: #4338ca; transform: translateY(-2px); }
+
+        /* Hero Section */
+        .hero { text-align: center; padding: 60px 20px; background: white; margin-bottom: 40px; border-bottom: 1px solid #e5e7eb; }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 15px; color: #111827; }
+        .hero p { color: var(--text-light); font-size: 1.1rem; margin-bottom: 30px; }
+        
+        .search-bar { display: inline-flex; gap: 10px; background: #f9fafb; padding: 8px; border-radius: 12px; border: 1px solid #e5e7eb; }
+        .search-bar input { border: none; background: transparent; padding: 10px; width: 300px; outline: none; font-size: 1rem; }
+        .search-bar select { border: none; background: transparent; font-weight: 600; color: #374151; outline: none; cursor: pointer; }
+
+        /* Grid Layout */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
+
+        /* Card Design */
+        .card { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); transition: 0.3s; position: relative; border: 1px solid #e5e7eb; display: flex; flex-direction: column; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.1); }
+        .card-img-container { height: 200px; background: #e5e7eb; overflow: hidden; position: relative; }
+        .card img { width: 100%; height: 100%; object-fit: cover; }
+        
+        .badge { position: absolute; top: 12px; left: 12px; padding: 6px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 800; color: white; text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+        .badge.lost { background: #EF4444; }
+        .badge.found { background: #10B981; }
+
+        .card-body { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+        .card h3 { font-size: 1.25rem; margin-bottom: 8px; color: #111827; }
+        .card p { color: var(--text-light); font-size: 0.95rem; line-height: 1.5; margin-bottom: 20px; flex-grow: 1; }
+        
+        .whatsapp-btn { display: flex; align-items: center; justify-content: center; gap: 8px; background: #25D366; color: white; padding: 12px; border-radius: 8px; font-weight: 600; transition: 0.2s; }
+        .whatsapp-btn:hover { background: #1ebc57; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">🔍 CampusFind</div>
+        <div class="nav-links">
+            <a href="login.html" class="btn-outline">Login</a>
+            <a href="upload.html" class="btn-solid">+ Report Item</a>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <h1>Find what you lost.</h1>
+        <p>The centralized hub for lost and found items on campus.</p>
+        
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search (e.g. Blue bag)..." onkeyup="filterItems()">
+            <select id="filterType" onchange="filterItems()">
+                <option value="all">All Items</option>
+                <option value="Lost">Lost</option>
+                <option value="Found">Found</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="itemsContainer" class="grid">
+            <p style="text-align: center; width: 100%; grid-column: 1/-1;">Loading...</p>
+        </div>
+    </div>
+<div class="card" style="width: 18rem;">
+  <img src="https://doieur1arw9xr.cloudfront.net/optamark/images/product/TECHNOLOGY-PRODUCTS-ELECTRONICS.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">lost electronic product</h5>
+    <p class="card-text">if someone lost electronic related product then go to the link given below</p>
+    <a href="file:///C:/Users/LENOVO/OneDrive/Desktop/New%20folder%20(3)/index.html" class="btn btn-primary">click here for lost electronic device</a>
+  </div>
+</div>
+<div class="card" style="width: 18rem;">
+  <img src="https://static01.nyt.com/images/2019/06/20/science/20wallet2/merlin_156729945_74696032-f5b2-45f5-9179-265d63dd6874-articleLarge.jpg?quality=75&auto=webp&disable=upscale" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">wallet and precious things</h5>
+    <p class="card-text">if someone lost wallet and precious things then go to the link given below</p>
+    <a href="file:///C:/Users/LENOVO/OneDrive/Desktop/New%20folder%20(3)/index2.html" class="btn btn-primary">click for lost wallet and precious things</a>
+  </div>
+</div>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-storage-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script> <script src="app.js"></script>
+    <script> window.onload = () => loadItems(); </script>
+</body>
+</html>
